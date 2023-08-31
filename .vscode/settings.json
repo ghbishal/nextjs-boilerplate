@@ -1,0 +1,19 @@
+{
+    "editor.tabSize": 2,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.quickSuggestions": {
+        "other": "on",
+        "strings": "on"
+    },
+    "editor.inlineSuggest.enabled": true
+}
