@@ -6,7 +6,7 @@
     "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": true,
