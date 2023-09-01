@@ -20,7 +20,9 @@ Everyone is welocme to contribute to the project. Feel free to open an issue if 
 
 1. Fork the repository.
 2. Create a branch whih a descriptive name.
-3. Make your changes, and commit them using the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0)
+3. Make your changes, and commit them using the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0) format.
+4. Push your changes to the forked repository.
+5. Create a pull request, and we'll review your changes.
 
 ## 🪪 License
 
