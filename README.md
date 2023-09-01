@@ -13,3 +13,15 @@ Experience developer awesomeness with these all-in-one features:
 - 🎯 **[Absolute imports](https://nextjs.org/docs/advanced-features/module-path-aliases)** - Simplified Absolute import paths using the @ prefix
 - 🚀 **[GitHub Actions](https://github.com/features/actions)** - Pre-configured actions for seamless workflows with GitHub Actions on pull requests
 - 🗂 **[VSCode configuration](https://code.visualstudio.com/docs/getstarted/settings)** - Streamlined debugging, settings, tasks, and extensions for ESLint, Prettier, and TypeScript.
+
+## 🤝 Contributions
+
+Everyone is welocme to contribute to the project. Feel free to open an issue if you have question or found a bug. Totally open to any suggestions and improvements. To contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a branch whih a descriptive name.
+3. Make your changes, and commit them using the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0)
+
+## 🪪 License
+
+This project is licensed under the MIT License. For more information, see the [LICENSE](./LICENSE) file.
