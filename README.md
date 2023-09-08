@@ -9,6 +9,9 @@ Experience developer awesomeness with these all-in-one features:
 - 🏎️ **[Next.js](https://nextjs.org)** - Fast by default, equipped with the App Router
 - 💎 **[TypeScript](https://www.typescriptlang.org)** -Enhanced with the [`ts-reset`](https://github.com/total-typescript/ts-reset) library for unparalleled type safety
 - 💅 **[Tailwind CSS](https://tailwindcss.com)** - A utility-first CSS framework for rapid UI development
+- 🪡 **[Tailwind merge](https://github.com/dcastil/tailwind-merge)** - Utility function to efficiently merge Tailwind CSS classes in JS without style conflicts.
+- 🧶 **[clsx](https://github.com/lukeed/clsx)** - function can take any number of arguments, each of which can be an Object, Array, Boolean, or String.
+- 💥 **[CVA](http://cva.style/)** - Create a consistent, reusable, and atomic design system
 - ✨ **[ESlint](https://eslint.org)** and **[Prettier](https://prettier.io)** - Ensuring clean, consistent, and error-free code
 - 🎯 **[Absolute imports](https://nextjs.org/docs/advanced-features/module-path-aliases)** - Simplified Absolute import paths using the @ prefix
 - 🚀 **[GitHub Actions](https://github.com/features/actions)** - Pre-configured actions for seamless workflows with GitHub Actions on pull requests
@@ -39,6 +42,55 @@ yarn dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 🎨 Styling and Design System
+
+This boilerplate uses Tailwind CSS for styling and CVA for creating a powerful, easy-to-use design system. If you want to learn more about the setup, check out this fantastic video by Vercel:
+
+[![Styling and Design System](https://img.youtube.com/vi/T-Zv73yZ_QI/0.jpg)](https://www.youtube.com/watch?v=T-Zv73yZ_QI&ab_channel=Vercel)
+
+### CVA - A New Approach to Variants
+
+While CSS-in-TS libraries such as [Stitches](https://stitches.dev/) and [Vanilla Extract](https://vanilla-extract.style/) are great for building type-safe UI components, they might not be the perfect fit for everyone. You may prefer more control over your stylesheets, need to use a framework like Tailwind CSS, or simply enjoy writing your own CSS.
+
+Creating variants using traditional CSS can be a tedious task, requiring you to manually match classes to props and add types. CVA is here to take that pain away, allowing you to focus on the enjoyable aspects of UI development. By providing an easy and type-safe way to create variants, CVA simplifies the process and helps you create powerful design systems without compromising on the flexibility and control of CSS.
+
+### tailwind-merge 
+
+Utility function to efficiently merge [Tailwind CSS](https://tailwindcss.com) classes in JS without style conflicts.
+
+```ts
+import { twMerge } from 'tailwind-merge'
+
+twMerge('px-2 py-1 bg-red hover:bg-dark-red', 'p-3 bg-[#B91C1C]')
+// → 'hover:bg-dark-red p-3 bg-[#B91C1C]'
+```
+
+### clsx(...input)
+
+The `clsx` function can take ***any*** number of arguments, each of which can be an Object, Array, Boolean, or String.
+
+> **Important:** _Any_ falsey values are discarded!<br>Standalone Boolean values are discarded as well.
+
+```js
+clsx(true, false, '', null, undefined, 0, NaN);
+//=> ''
+```
+
+### Class Merging
+
+The `cn` located at `utils.ts`. util handles conditional classes and class merging.
+
+```ts
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+```sh
+  Input -> cn("px-2 bg-slate-100 py-2 bg-slate-200")
+  // Outputs `p-2 bg-slate-200`
+```
 
 ## 💻 Environment Variables handling
 
