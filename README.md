@@ -26,7 +26,7 @@ To get started with this boilerplate, follow these steps:
 
 ```bash
 ## Don't forget to ⭐ star and fork it first :)
-git clone https://github.com/<your_username)/next-js-starter-boilerplate.git
+git clone https://github.com/ghbishal/next-js-starter-boilerplate.git
 ```
 
 2. Install the dependencies:
