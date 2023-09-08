@@ -24,8 +24,8 @@ To get started with this boilerplate, follow these steps:
 
 1. Fork & clone repository:
 
+Don't forget to ⭐ star and fork it first 🤗
 ```bash
-## Don't forget to ⭐ star and fork it first :)
 git clone https://github.com/ghbishal/next-js-starter-boilerplate.git
 ```
 
