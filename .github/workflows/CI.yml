@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Install dependencies
-        run: yarn install --silent --production=true --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Rebuild
         run: yarn build
@@ -46,7 +46,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: yarn install --silent --production=true --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Lint check
         run: yarn lint
