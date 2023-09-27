@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths-ignore:
+      - '**.md'
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+
+    name: Build with ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: yarn install --silent --production=true --frozen-lockfile
+
+      - name: Rebuild
+        run: yarn build
+
+  check:
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+        
+    name: Run all checks
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn install --silent --production=true --frozen-lockfile
+
+      - name: Lint check
+        run: yarn lint
+
+      - name: Format check
+        run: yarn prettier
+
+      - name: Type check
+        run: yarn check-types
