@@ -13,6 +13,7 @@ Experience developer awesomeness with these all-in-one features:
 - 🧶 **[clsx](https://github.com/lukeed/clsx)** - function can take any number of arguments, each of which can be an Object, Array, Boolean, or String.
 - 💥 **[CVA](http://cva.style/)** - Create a consistent, reusable, and atomic design system
 - ✨ **[ESlint](https://eslint.org)** and **[Prettier](https://prettier.io)** - Ensuring clean, consistent, and error-free code
+- 📕 **[Storybook](https://storybook.js.org/)** - Create, test, and showcase your components
 - 🎯 **[Absolute imports](https://nextjs.org/docs/advanced-features/module-path-aliases)** - Simplified Absolute import paths using the @ prefix
 - 🚀 **[GitHub Actions](https://github.com/features/actions)** - Pre-configured actions for seamless workflows with GitHub Actions on pull requests
 - 🗂 **[VSCode configuration](https://code.visualstudio.com/docs/getstarted/settings)** - Streamlined debugging, settings, tasks, and extensions for ESLint, Prettier, and TypeScript.

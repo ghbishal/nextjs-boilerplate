@@ -5,9 +5,10 @@ module.exports = {
   extends: [
     'next',
     'prettier',
-    'next/core-web-vitals', // Needed to avoid warning in next.js build: "The Next.js plugin was not detected in your ESlint configuration"
+    'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:tailwindcss/recommended',
+    'plugin:storybook/recommended',
   ],
   rules: {
     '@next/next/no-html-link-for-pages': 'off',
