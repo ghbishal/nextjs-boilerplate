@@ -7,13 +7,18 @@ module.exports = {
     'prettier',
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
+    'eslint:recommended',
+    'plugin:import/recommended',
     'plugin:tailwindcss/recommended',
     'plugin:storybook/recommended',
   ],
   rules: {
     '@next/next/no-html-link-for-pages': 'off',
     '@typescript-eslint/no-extraneous-class': 'error',
-    '@typescript-eslint/no-unused-vars': [
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
       'warn',
       {
         argsIgnorePattern: '^_',
@@ -58,6 +63,22 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['src/**/*.{ts,tsx}', '**/*.ts', '**/*.tsx'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint', 'import', 'unused-imports'],
+      settings: {
+        'import/resolver': {
+          typescript: true,
+          node: true,
+        },
+      },
+      rules: {
+        'import/no-unresolved': 'error',
+      },
+    },
+  ],
 };
 
 function getDirectoriesToSort() {
