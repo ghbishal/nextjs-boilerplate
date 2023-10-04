@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs');
-
 module.exports = {
   extends: [
     'next',
@@ -37,10 +34,6 @@ module.exports = {
       {
         groups: ['external', 'builtin', 'internal', 'sibling', 'parent', 'index'],
         pathGroups: [
-          ...getDirectoriesToSort().map((singleDir) => ({
-            pattern: `${singleDir}/**`,
-            group: 'internal',
-          })),
           {
             pattern: 'env',
             group: 'internal',
@@ -76,18 +69,8 @@ module.exports = {
       },
       rules: {
         'import/no-unresolved': 'error',
+        'import/no-named-as-default': 'off',
       },
     },
   ],
 };
-
-function getDirectoriesToSort() {
-  const ignoredSortingDirectories = ['.git', '.next', '.vscode', 'node_modules'];
-  return getDirectories(process.cwd()).filter((f) => !ignoredSortingDirectories.includes(f));
-}
-
-function getDirectories(path) {
-  return fs.readdirSync(path).filter(function (file) {
-    return fs.statSync(path + '/' + file).isDirectory();
-  });
-}
