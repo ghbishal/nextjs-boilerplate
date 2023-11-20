@@ -1,1 +1,1 @@
-export * from './site';
+export * from './pathName';
