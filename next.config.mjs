@@ -1,6 +1,9 @@
+import NextIntlPlugin from 'next-intl/plugin';
 import './src/lib/env.mjs';
 
 /** @type {import('next').NextConfig} */
-const config = {};
-
-export default config;
+const nextConfig = {
+  /* config options here */
+};
+const withNextIntl = NextIntlPlugin('./src/i18n.ts');
+export default withNextIntl(nextConfig);

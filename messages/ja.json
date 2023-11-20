@@ -1,0 +1,10 @@
+{
+  "Home":{
+    "desc":"🚀🎉📚 App Router および Page Router サポート、Tailwind CSS 3.3 および TypeScript を備えた Next.js 13 以降のボイラープレートおよびスターター ⚡️ 開発者のエクスペリエンスを最優先に作成: Next.js + TypeScript + ESLint + Prettier + Husky + Lint-Staging + Jest +ライブラリのテスト + Cypress + Storybook + Commitlint + VSCode + Netlify + PostCSS + Tailwind CSS"
+  },
+
+  "LocaleLayout": {
+    "title":"next-js-starter-ボイラープレート"
+  }
+}
+
