@@ -18,6 +18,7 @@ Experience developer awesomeness with these all-in-one features:
 - 🚀 **[GitHub Actions](https://github.com/features/actions)** - Pre-configured actions for seamless workflows with GitHub Actions on pull requests
 - 🗂 **[VSCode configuration](https://code.visualstudio.com/docs/getstarted/settings)** - Streamlined debugging, settings, tasks, and extensions for ESLint, Prettier, and TypeScript.
 - 🍀 **[T3 Env](https://env.t3.gg/)** - Manage your type-safe environment variables with T3 Env
+- 📋**[next-intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
 
 ## 🎯 Getting Started
 
@@ -126,6 +127,35 @@ If the required environment variables are not set, you'll get an error message:
   ❌ Invalid environment variables: { SECRET_KEY: [ 'Required' ] }
 ```
 
+## 💰¥ Internationalization
+
+[next-intl](https://next-intl-docs.vercel.app/) is a library that supports multiple languages, with your app code becoming simpler insted of more complex. 
+ 
+In order to add more language option just add translation file inside [messages](./messages/) file and your language locale inside `pathName.ts` also if you want a custom navigation link just add more links in the following order. For more info check [next-intl/navigation](https://next-intl-docs.vercel.app/docs/routing/navigation)
+
+```ts
+
+import { Pathnames } from 'next-intl/navigation';
+
+export const locales = ['en', 'ja'] as const;
+
+export const pathnames = {
+  '/': '/',
+  '/home': {
+    en: '/home',
+    ja: '/ホーム',
+  },
+  '/about': {
+    en: '/about',
+    ja: '/およそ',
+  },
+} satisfies Pathnames<typeof locales>;
+
+export type AppPathnames = keyof typeof pathnames;
+
+
+```
+
 ## 🤝 Contributions
 
 Everyone is welocme to contribute to the project. Feel free to open an issue if you have question or found a bug. Totally open to any suggestions and improvements. To contribute, please follow these steps:
@@ -138,4 +168,4 @@ Everyone is welocme to contribute to the project. Feel free to open an issue if 
 
 ## 🪪 License
 
-This project is licensed under the MIT License. For more information, see the [LICENSE](./LICENSE) file.``
+This project is licensed under the MIT License. For more information, see the [LICENSE](./LICENSE) file.
