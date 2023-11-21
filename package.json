@@ -20,6 +20,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.2",
     "@t3-oss/env-nextjs": "^0.7.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
@@ -41,6 +42,7 @@
     "@storybook/react": "^7.5.3",
     "@storybook/testing-library": "^0.2.1",
     "@total-typescript/ts-reset": "^0.5.1",
+    "@types/negotiator": "^0.6.3",
     "@types/node": "^20.9.2",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import React, { ReactNode, Suspense } from 'react';
 import Loading from '@/app/[locale]/loading';
-import { locales } from '@/config';
+import { locales } from '@/i18n';
 
 const inter = Inter({ subsets: ['latin'] });
 

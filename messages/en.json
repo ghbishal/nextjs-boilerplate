@@ -3,7 +3,17 @@
     "desc":"🚀🎉📚 Boilerplate and Starter for Next.js 13+ with App Router and Page Router support,Tailwind CSS 3.3 and TypeScript ⚡️ Made with developer experience first: Next.js + TypeScript + ESLint + Prettier + Husky + Lint-Staged + Jest + Testing Library + Cypress +Storybook + Commitlint + VSCode + Netlify + PostCSS + Tailwind CSS"
   },
 
+  "PathnamesPage": {
+    "title": "Pathnames",
+    "description": "<p>The pathnames are internationalized too.</p><p>If you're using the default language English, you'll see <code>/en/pathnames</code> in the browser address bar on this page.</p><p>If you change the locale to German, the URL is localized accordingly (<code>/de/pfadnamen</code>).</p>"
+  },
+
   "LocaleLayout": {
     "title": "next-js-starter-Boilerplate"
+  },
+
+  "Navigation": {
+    "home": "Home",
+    "pathnames": "Pathnames"
   }
 }
