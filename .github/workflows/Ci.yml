@@ -15,52 +15,45 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-    name: Build with ${{ matrix.node-version }}
+    name: Build with bun latest
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Build with bun latest
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          bun-version: latest
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: bun install
 
       - name: Rebuild
-        run: yarn build
+        run: bun run build
 
   check:
-    strategy:
-      matrix:
-        node-version: [18.x]
-        
+
     name: Run all checks
     runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: Build with bun latest
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          bun-version: latest
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: bun install
 
       - name: Lint check
-        run: yarn lint
+        run: bun lint
 
       - name: Format check
-        run: yarn prettier
+        run: bun prettier
 
       - name: Type check
-        run: yarn check-types
+        run: bun check-types
