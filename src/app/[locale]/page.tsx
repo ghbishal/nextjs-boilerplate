@@ -1,7 +1,14 @@
 import { useTranslations } from 'next-intl';
+import { unstable_setRequestLocale } from 'next-intl/server';
 import { Link } from '@/navigation';
 
-export default function Home() {
+type Props = {
+  params: { locale: string };
+};
+
+export default async function HomePage({ params: { locale } }: Props) {
+  // Enable static rendering
+  unstable_setRequestLocale(locale);
   const t = useTranslations('Home');
   return (
     <main className="flex h-screen flex-col items-center justify-center">
