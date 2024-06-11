@@ -1,6 +1,6 @@
-# Next.js 13+ Boilerplate and Starter with Tailwind CSS 3.3 and TypeScript
+# Next.js 14+ Boilerplate and Starter with Tailwind CSS, next-intl, TypeScript
 
-🚀 Welcome to the Next.js Boilerplate and Starter, a powerful open-source template designed for scalable projects! This resource is packed with features to help you craft high-performance, maintainable, and delightful applications. Harness the combined capabilities of App Router, Tailwind CSS, and TypeScript ⚡️, all meticulously crafted with a developer-first approach using Next.js, TypeScript, ESLint, and Prettier. We've taken care of the heavy lifting so you can kick back, relax, and prepare to conquer the world with your extraordinary application! 🌍
+🚀 Welcome to the Next.js Production Ready Boilerplate and Starter, a powerful open-source template designed for scalable projects! This resource is packed with features to help you craft high-performance, maintainable, and delightful applications. Harness the combined capabilities of App Router, Tailwind CSS, and TypeScript ⚡️, all meticulously crafted with a developer-first approach using Next.js, TypeScript, ESLint, Husky, next-intl and Prettier. We've taken care of the heavy lifting so you can kick back, relax, and prepare to conquer the world with your extraordinary application! 🌍
 
 ## 📚 Features
 
@@ -18,7 +18,10 @@ Experience developer awesomeness with these all-in-one features:
 - 🚀 **[GitHub Actions](https://github.com/features/actions)** - Pre-configured actions for seamless workflows with GitHub Actions on pull requests
 - 🗂 **[VSCode configuration](https://code.visualstudio.com/docs/getstarted/settings)** - Streamlined debugging, settings, tasks, and extensions for ESLint, Prettier, and TypeScript.
 - 🍀 **[T3 Env](https://env.t3.gg/)** - Manage your type-safe environment variables with T3 Env
-- 📋**[next-intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
+- 📋 **[next-intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
+- 🦊 **[Husky](https://typicode.github.io/husky/)** - Husky for Git Hooks
+- 🚫 **[Lint-Staged](https://github.com/lint-staged/lint-staged#readme)** - Lint-staged for running linters on Git staged files
+
 
 ## 🎯 Getting Started
 
@@ -28,7 +31,7 @@ To get started with this boilerplate, follow these steps:
 
 Don't forget to ⭐ star and fork it first 🤗
 ```bash
-git clone https://github.com/ghbishal/next-js-starter-boilerplate.git
+git clone https://github.com/ghbishal/nextjs-boilerplate.git
 ```
 
 2. Install the dependencies:
