@@ -31,19 +31,20 @@ To get started with this boilerplate, follow these steps:
 
 Don't forget to ⭐ star and fork it first 🤗
 ```bash
-git clone https://github.com/ghbishal/nextjs-boilerplate.git
+git clone --depth=1 https://github.com/ghbishal/nextjs-boilerplate.git my-project-name
 ```
 
 2. Install the dependencies:
 
 ```bash
-yarn install
+cd my-project-name
+npm install
 ```
 
 3. Run the development server:
 
 ```bash
-yarn dev
+npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
