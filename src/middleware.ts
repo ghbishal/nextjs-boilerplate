@@ -2,7 +2,6 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
-import { pathnames } from './config';
 import { type I18nConfig, locales } from './i18n';
 
 function getLocale(request: NextRequest, i18nConfig: I18nConfig) {
@@ -23,7 +22,8 @@ export default async function middleware(request: NextRequest) {
   const handleI18nRouting = createMiddleware({
     defaultLocale: getDefaultLocale || 'en',
     locales,
-    pathnames,
+    localePrefix: 'always',
+    localeDetection: true,
   });
 
   const response = handleI18nRouting(request);
