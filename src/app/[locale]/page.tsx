@@ -1,8 +1,16 @@
 import { useTranslations } from 'next-intl';
-import { Link } from '@/navigation';
+import { unstable_setRequestLocale } from 'next-intl/server';
+import { Link } from '@/i18nNavigation';
 
-export default function Home() {
+type Props = {
+  params: { locale: string };
+};
+
+export default function Home({ params: { locale } }: Props) {
+  // Enable static rendering
+  unstable_setRequestLocale(locale);
   const t = useTranslations('Home');
+
   return (
     <main className="flex h-screen flex-col items-center justify-center">
       <div className="mb-9 flex">

@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
 
 export const locales = ['en', 'ja'];
@@ -8,13 +9,16 @@ export const i18n = {
 };
 
 export type I18nConfig = typeof i18n;
-export type Locale = I18nConfig['locales'][number];
 
-export default getRequestConfig(async ({ locale }) => ({
-  messages: (
-    await (locale === 'en'
-      ? // When using Turbopack, this will enable HMR for `en`
-        import('../messages/en.json')
-      : import(`../messages/${locale}.json`))
-  ).default,
-}));
+export default getRequestConfig(async ({ locale }) => {
+  if (!locales.includes(locale)) notFound();
+
+  return {
+    messages: (
+      await (locale === 'en'
+        ? // When using Turbopack, this will enable HMR for `en`
+          import('../messages/en.json')
+        : import(`../messages/${locale}.json`))
+    ).default,
+  };
+});

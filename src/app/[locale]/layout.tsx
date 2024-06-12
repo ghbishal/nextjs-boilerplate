@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import React, { ReactNode, Suspense } from 'react';
 import Loading from '@/app/[locale]/loading';
@@ -32,10 +33,13 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 
   // Enable static rendering
   unstable_setRequestLocale(locale);
+  const message = useMessages();
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <Suspense fallback={<Loading />}>{children}</Suspense>
+        <NextIntlClientProvider messages={message}>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
