@@ -37,7 +37,7 @@ jobs:
 
     name: Run all checks
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v3
 
@@ -51,9 +51,6 @@ jobs:
 
       - name: Lint check
         run: bun lint
-
-      - name: Format check
-        run: bun prettier
 
       - name: Type check
         run: bun check-types

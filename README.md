@@ -22,7 +22,6 @@ Experience developer awesomeness with these all-in-one features:
 - 🦊 **[Husky](https://typicode.github.io/husky/)** - Husky for Git Hooks
 - 🚫 **[Lint-Staged](https://github.com/lint-staged/lint-staged#readme)** - Lint-staged for running linters on Git staged files
 
-
 ## 🎯 Getting Started
 
 To get started with this boilerplate, follow these steps:
@@ -61,14 +60,14 @@ While CSS-in-TS libraries such as [Stitches](https://stitches.dev/) and [Vanilla
 
 Creating variants using traditional CSS can be a tedious task, requiring you to manually match classes to props and add types. CVA is here to take that pain away, allowing you to focus on the enjoyable aspects of UI development. By providing an easy and type-safe way to create variants, CVA simplifies the process and helps you create powerful design systems without compromising on the flexibility and control of CSS.
 
-### tailwind-merge 
+### tailwind-merge
 
 Utility function to efficiently merge [Tailwind CSS](https://tailwindcss.com) classes in JS without style conflicts.
 
 ```ts
-import { twMerge } from 'tailwind-merge'
+import { twMerge } from 'tailwind-merge';
 
-twMerge('px-2 py-1 bg-red hover:bg-dark-red', 'p-3 bg-[#B91C1C]')
+twMerge('px-2 py-1 bg-red hover:bg-dark-red', 'p-3 bg-[#B91C1C]');
 // → 'hover:bg-dark-red p-3 bg-[#B91C1C]'
 ```
 
@@ -79,8 +78,8 @@ The `clsx` function can take ***any*** number of arguments, each of which can be
 > **Important:** _Any_ falsey values are discarded!<br>Standalone Boolean values are discarded as well.
 
 ```js
-clsx(true, false, '', null, undefined, 0, NaN);
-//=> ''
+clsx(true, false, '', null, undefined, 0, Number.NaN);
+// => ''
 ```
 
 ### Class Merging
@@ -122,7 +121,7 @@ export const env = createEnv({
     SECRET_KEY: process.env.SECRET_KEY,
     API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
-})
+});
 ```
 
 If the required environment variables are not set, you'll get an error message:
@@ -133,12 +132,11 @@ If the required environment variables are not set, you'll get an error message:
 
 ## 💰¥ Internationalization
 
-[next-intl](https://next-intl-docs.vercel.app/) is a library that supports multiple languages, with your app code becoming simpler insted of more complex. 
- 
+[next-intl](https://next-intl-docs.vercel.app/) is a library that supports multiple languages, with your app code becoming simpler insted of more complex.
+
 In order to add more language option just add translation file inside [messages](./messages/) file and your language locale inside `pathName.ts` also if you want a custom navigation link just add more links in the following order. For more info check [next-intl/navigation](https://next-intl-docs.vercel.app/docs/routing/navigation)
 
 ```ts
-
 import { Pathnames } from 'next-intl/navigation';
 
 export const locales = ['en', 'ja'] as const;
@@ -156,8 +154,6 @@ export const pathnames = {
 } satisfies Pathnames<typeof locales>;
 
 export type AppPathnames = keyof typeof pathnames;
-
-
 ```
 
 ## 🤝 Contributions

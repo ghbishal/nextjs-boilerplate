@@ -1,15 +1,25 @@
-import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18nNavigation';
+import { Link } from '@/i18n/i18nNavigation';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 type Props = {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
-export default function Home({ params: { locale } }: Props) {
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Navigation' });
+
+  return {
+    title: t('home'),
+  };
+}
+
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Home' });
+
   // Enable static rendering
-  unstable_setRequestLocale(locale);
-  const t = useTranslations('Home');
+  setRequestLocale(locale);
 
   return (
     <main className="flex h-screen flex-col items-center justify-center">

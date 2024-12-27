@@ -1,24 +1,26 @@
-import '@/styles/globals.css';
+import type { ReactNode } from 'react';
+import Loading from '@/app/[locale]/loading';
+import { routing } from '@/i18n/i18nNavigation';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import React, { ReactNode, Suspense } from 'react';
-import Loading from '@/app/[locale]/loading';
-import { locales } from '@/i18n';
+import React, { Suspense } from 'react';
+import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map(locale => ({ locale }));
 }
 
-export async function generateMetadata({ params: { locale } }: Omit<Props, 'children'>) {
+export async function generateMetadata({ params }: Omit<Props, 'children'>) {
+  const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
 
   return {
@@ -26,18 +28,21 @@ export async function generateMetadata({ params: { locale } }: Omit<Props, 'chil
   };
 }
 
-export default function LocaleLayout({ children, params: { locale } }: Props) {
+export default async function LocaleLayout({ children, params }: Props) {
   // Validate that the incoming `locale` parameter is valid
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!locales.includes(locale as any)) notFound();
+  const { locale } = await params;
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
 
   // Enable static rendering
-  unstable_setRequestLocale(locale);
-  const message = useMessages();
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NextIntlClientProvider messages={message}>
+        <NextIntlClientProvider messages={messages}>
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </NextIntlClientProvider>
       </body>
