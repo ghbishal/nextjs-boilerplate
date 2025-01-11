@@ -1,4 +1,4 @@
-# Next.js 14+ Boilerplate and Starter with Tailwind CSS, next-intl, TypeScript
+# Next.js 15+ Boilerplate and Starter with Tailwind CSS, next-intl, TypeScript
 
 🚀 Welcome to the Next.js Production Ready Boilerplate and Starter, a powerful open-source template designed for scalable projects! This resource is packed with features to help you craft high-performance, maintainable, and delightful applications. Harness the combined capabilities of App Router, Tailwind CSS, and TypeScript ⚡️, all meticulously crafted with a developer-first approach using Next.js, TypeScript, ESLint, Husky, next-intl and Prettier. We've taken care of the heavy lifting so you can kick back, relax, and prepare to conquer the world with your extraordinary application! 🌍
 
