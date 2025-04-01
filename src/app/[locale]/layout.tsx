@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Loading from '@/app/[locale]/loading';
 import { routing } from '@/i18n/i18nNavigation';
-import { NextIntlClientProvider } from 'next-intl';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Omit<Props, 'children'>) {
 export default async function LocaleLayout({ children, params }: Props) {
   // Validate that the incoming `locale` parameter is valid
   const { locale } = await params;
-  if (!routing.locales.includes(locale)) {
+  if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
