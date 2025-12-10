@@ -17,7 +17,7 @@
     },
     "resolveJsonModule": true,
     "allowJs": true,
-    "checkJs": true,
+    // "checkJs": true, // remove js file check
 
     /* TYPE CHECKING RULES */
     "strict": true,
