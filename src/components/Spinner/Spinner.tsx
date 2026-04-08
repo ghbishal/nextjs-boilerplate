@@ -1,6 +1,6 @@
 import type { VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
 
 const spinnerStyles = cva('animate-spin', {
   variants: {

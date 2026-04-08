@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
-import Loading from '@/app/[locale]/loading';
-import { routing } from '@/i18n/i18nNavigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 import { notFound } from 'next/navigation';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
+import Loading from '@/app/[locale]/loading';
+import { routing } from '@/i18n/i18nNavigation';
 import '@/styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
