@@ -41,6 +41,7 @@ export default antfu(
       'style/brace-style': ['error', '1tbs'], // Use the default brace style
       'ts/consistent-type-definitions': ['error', 'type'], // Use `type` instead of `interface`
       'react/prefer-destructuring-assignment': 'off', // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
+      'react/prefer-namespace-import': 'off', // Not needed with react-jsx transform (React 17+)
       'node/prefer-global/process': 'off', // Allow using `process.env`
     },
   },

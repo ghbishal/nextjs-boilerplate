@@ -1,4 +1,4 @@
-# Next.js 15+ Boilerplate and Starter with Tailwind CSS, next-intl, TypeScript
+# Next.js Boilerplate with Tailwind CSS, next-intl, TypeScript
 
 🚀 Welcome to the Next.js Production Ready Boilerplate and Starter, a powerful open-source template designed for scalable projects! This resource is packed with features to help you craft high-performance, maintainable, and delightful applications. Harness the combined capabilities of App Router, Tailwind CSS, and TypeScript ⚡️, all meticulously crafted with a developer-first approach using Next.js, TypeScript, ESLint, Husky, next-intl and Prettier. We've taken care of the heavy lifting so you can kick back, relax, and prepare to conquer the world with your extraordinary application! 🌍
 
@@ -13,7 +13,6 @@ Experience developer awesomeness with these all-in-one features:
 - 🧶 **[clsx](https://github.com/lukeed/clsx)** - function can take any number of arguments, each of which can be an Object, Array, Boolean, or String.
 - 💥 **[CVA](http://cva.style/)** - Create a consistent, reusable, and atomic design system
 - ✨ **[ESlint](https://eslint.org)** and **[Prettier](https://prettier.io)** - Ensuring clean, consistent, and error-free code
-- 📕 **[Storybook](https://storybook.js.org/)** - Create, test, and showcase your components
 - 🎯 **[Absolute imports](https://nextjs.org/docs/advanced-features/module-path-aliases)** - Simplified Absolute import paths using the @ prefix
 - 🚀 **[GitHub Actions](https://github.com/features/actions)** - Pre-configured actions for seamless workflows with GitHub Actions on pull requests
 - 🗂 **[VSCode configuration](https://code.visualstudio.com/docs/getstarted/settings)** - Streamlined debugging, settings, tasks, and extensions for ESLint, Prettier, and TypeScript.
@@ -21,6 +20,7 @@ Experience developer awesomeness with these all-in-one features:
 - 📋 **[next-intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
 - 🦊 **[Husky](https://typicode.github.io/husky/)** - Husky for Git Hooks
 - 🚫 **[Lint-Staged](https://github.com/lint-staged/lint-staged#readme)** - Lint-staged for running linters on Git staged files
+- 📦 **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
 
 ## 🎯 Getting Started
 
@@ -37,13 +37,13 @@ git clone --depth=1 https://github.com/ghbishal/nextjs-boilerplate.git my-projec
 
 ```bash
 cd my-project-name
-npm install
+pnpm install
 ```
 
 3. Run the development server:
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -99,7 +99,7 @@ export function cn(...inputs: ClassValue[]) {
 
 ## 💻 Environment Variables handling
 
-[T3 Env](https://env.t3.gg/) is a library that provides environmental variables checking at build time, type validation and transforming. It ensures that your application is using the correct environment variables and their values are of the expected type. You’ll never again struggle with runtime errors caused by incorrect environment variable usage.
+[T3 Env](https://env.t3.gg/) is a library that provides environmental variables checking at build time, type validation and transforming. It ensures that your application is using the correct environment variables and their values are of the expected type. You'll never again struggle with runtime errors caused by incorrect environment variable usage.
 
 Config file is located at `env.mjs`. Simply set your client and server variables and import `env` from any file in your project.
 
@@ -134,26 +134,15 @@ If the required environment variables are not set, you'll get an error message:
 
 [next-intl](https://next-intl-docs.vercel.app/) is a library that supports multiple languages, with your app code becoming simpler insted of more complex.
 
-In order to add more language option just add translation file inside [messages](./messages/) file and your language locale inside `pathName.ts` also if you want a custom navigation link just add more links in the following order. For more info check [next-intl/navigation](https://next-intl-docs.vercel.app/docs/routing/navigation)
+In order to add more language option just add translation file inside [messages](./messages/) file and your language locale inside `i18nNavigation.ts` also if you want a custom navigation link just add more links in the following order. For more info check [next-intl/navigation](https://next-intl-docs.vercel.app/docs/routing/navigation)
 
 ```ts
-import { Pathnames } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
-export const locales = ['en', 'ja'] as const;
-
-export const pathnames = {
-  '/': '/',
-  '/home': {
-    en: '/home',
-    ja: '/ホーム',
-  },
-  '/about': {
-    en: '/about',
-    ja: '/およそ',
-  },
-} satisfies Pathnames<typeof locales>;
-
-export type AppPathnames = keyof typeof pathnames;
+export const routing = defineRouting({
+  locales: ['en', 'ja'],
+  defaultLocale: 'en',
+});
 ```
 
 ## 🤝 Contributions
